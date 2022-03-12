@@ -1,20 +1,19 @@
-# hypertrie-multigraph
-[![Build Status](https://travis-ci.com/andrewosh/hypertrie-multigraph.svg?branch=master)](https://travis-ci.com/andrewosh/hypertrie-multigraph)
+# @web4/bittrie-multigraph
 
-A simple directed multigraph built on Hypertrie. Edges are stored in the Hypertrie using keys of the form `label/from/to`. Currently, the API exposes an iterator that performs a depth-first graph traversal.
+A simple directed multigraph built on Bittrie. Edges are stored in the Bittrie using keys of the form `label/from/to`. Currently, the API exposes an iterator that performs a depth-first graph traversal.
 
 ## Installation
 ```
-npm i hypertrie-multigraph --save
+npm i @web4/bittrie-multigraph --save
 ```
 
 ## Usage
 ```js
 const ram = require('random-access-memory')
-const trie = require('hypertrie')
-const Graph = require('hypertrie-multigraph')
+const bittrie = require('@web4/bittrie')
+const Graph = require('@web4/bittrie-multigraph')
 
-const trie = hypertrie(ram)
+const trie = bittrie(ram)
 const graph = new Graph(trie)
 
 await graph.put('a', 'b', 'my-label')
@@ -30,7 +29,7 @@ const ite = graph.iterator({ from: 'a', label: 'my-label', depth: 1 })
 
 ## API
 
-#### `const graph = new HypertrieGraph(trie)`
+#### `const graph = new BittrieGraph(trie)`
 Creates a new graph that uses the `trie` for storage.
 
 #### `await graph.put(from, to, label, [cb])`

@@ -1,12 +1,12 @@
 const nanoiterator = require('nanoiterator')
-const hypertrie = require('hypertrie')
+const bittrie = require('@web4/bittrie')
 const maybe = require('call-me-maybe')
 
 const StackIterator = require('stackable-nanoiterator')
 
-class HypertrieGraph {
+class BittrieGraph {
   constructor (storage, opts) {
-    this.trie = hypertrie(storage, opts)
+    this.trie = bittrie(storage, opts)
     this.ready = this.trie.ready.bind(this.trie)
     this._opts = opts
   }
@@ -98,4 +98,4 @@ class HypertrieGraph {
   }
 }
 
-module.exports = HypertrieGraph
+module.exports = BittrieGraph
